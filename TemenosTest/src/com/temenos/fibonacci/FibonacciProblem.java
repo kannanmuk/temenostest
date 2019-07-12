@@ -16,19 +16,16 @@ import java.math.BigInteger;
  */
 public class FibonacciProblem {
 	
-	private static final int numberOfDigits = 1000; //this should be configurable
-	private static BigInteger f1 = new BigInteger("1");
-	private static BigInteger f2 = new BigInteger("1");
 	
-	public static void main(String[] args)
-	{
-		System.out.println("index of the first number having "+numberOfDigits + " digits in fibonacci series="+ generateFibonacci(numberOfDigits));
-	}
+	private BigInteger f1 = new BigInteger("1"); //first fibonacci number
+	private BigInteger f2 = new BigInteger("1"); //second fibonacci number
 	
-	private static int generateFibonacci(int digits)
-	{
-		int index = 3;
+	private int index = 3; //programmatic fibonacci numbers generated from index 3
+	
+    int generateFibonacci(int digits)
+	{		
 		BigInteger fibonacciAtIndex=null;
+		//if the number to be found is with 1 digit then hardcode it
 		if(digits == 1){
 			return 1;
 		}
@@ -36,13 +33,15 @@ public class FibonacciProblem {
 		{
 		while(true)
 		{
-			fibonacciAtIndex=f2.add(f1);
-			
-			if(fibonacciAtIndex.toString().length() == digits)
+			fibonacciAtIndex=f2.add(f1); //Fn =  Fn-1 + Fn-2
+			//Main business logic is here which checks whether the number of digits in 
+			//generated bigint are same as the required number of digits
+			if(fibonacciAtIndex.toString().length() == digits) 
 			{				
 				System.out.println("fn-1 and fn-2 are:"+f1+" "+f2);
 				return index;
 			}
+			//if number is not yet found, then update the Fn-1,Fn-2 and increment the index
 			f1=f2;
 			f2=fibonacciAtIndex;			
 			index++;
