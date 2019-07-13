@@ -32,7 +32,7 @@ public class MultiThreadedMainApp {
 			e.printStackTrace();
 		}
 		System.out.println("time taken with mutli-threading:"+(System.currentTimeMillis()-beginTime));
-		System.out.println("total="+MagicalNumberChainThread.total);
+		System.out.println("total number of numbers that are arrived to 89  continuously adding the square of the digits in a number ="+MagicalNumberChainThread.total);
 		
 	}
 
