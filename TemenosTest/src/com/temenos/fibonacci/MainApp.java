@@ -13,7 +13,9 @@ public class MainApp {
 		
 		//call the function that counts how many numbers are arriving at 89 in number chain
 		MagicalNumberChain mnc = new MagicalNumberChain();
-		System.out.println("total ="+mnc.countNumersReachMagicalInt89(upperLimit));
+		long beginTime = System.currentTimeMillis();
+		System.out.println("total ="+mnc.countNumbersReachMagicalInt89(upperLimit));
+		System.out.println("time taken with single thread:"+(System.currentTimeMillis()-beginTime));
 	}
 
 }

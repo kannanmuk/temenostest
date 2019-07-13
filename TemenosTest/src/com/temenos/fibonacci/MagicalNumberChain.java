@@ -12,8 +12,24 @@ public class MagicalNumberChain {
 	
 	private static final int magicalInt1 = 1;
 	private static final int magicalInt89 = 89;
+	private int startIndex;
+	private int endIndex;
 	
-	int countNumersReachMagicalInt89(int upperLimit)
+	
+	int countNumbersReachMagicalInt89(int lowerLimit,int upperLimit)
+	{
+		int counter=0;
+		for(int i=lowerLimit;i<upperLimit;i++)
+		{
+			if(generateChainAndFind89Reached(i))
+			{
+				counter++;
+			}
+		}
+		return counter;
+	}
+	
+	int countNumbersReachMagicalInt89(int upperLimit)
 	{
 		int counter=0;
 		for(int i=2;i<upperLimit;i++)
@@ -55,6 +71,22 @@ public class MagicalNumberChain {
 		squareAndAdd = squareAndAdd + (n*n); //this adds the square of final digit which is less than 10
 		
 		return squareAndAdd;
+	}
+
+	public int getStartIndex() {
+		return startIndex;
+	}
+
+	public void setStartIndex(int startIndex) {
+		this.startIndex = startIndex;
+	}
+
+	public int getEndIndex() {
+		return endIndex;
+	}
+
+	public void setEndIndex(int endIndex) {
+		this.endIndex = endIndex;
 	}
 	
 
