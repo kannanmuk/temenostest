@@ -9,7 +9,7 @@ public class MagicalNumberChainMainApp {
 				MagicalNumberChain mnc = new MagicalNumberChain();
 				long beginTime = System.currentTimeMillis();
 				System.out.println("total number of numbers that are arrived to 89  continuously adding the square of the digits in a number ="+mnc.countNumbersReachMagicalInt89(upperLimit));
-				System.out.println("time taken with single thread:"+(System.currentTimeMillis()-beginTime));
+				System.out.println("time taken with single thread:"+(System.currentTimeMillis()-beginTime)+ " milliseconds");
 	}
 
 }

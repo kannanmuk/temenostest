@@ -5,7 +5,7 @@ package com.temenos.fibonacci;
  */
 public class FibonacciMainApp {
 	
-	private static final int numberOfDigits = 3; //this should be configurable
+	private static final int numberOfDigits = 1000; //this should be configurable
 	
 	
 	public static void main(String[] args)
