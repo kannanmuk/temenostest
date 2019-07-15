@@ -2,9 +2,15 @@ package com.temenos.prime;
 
 import java.math.BigInteger;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class PrimeFinderAndCounter {
+	
+	private int counter = 0;
+	private int startIndex = 0;
+	private int endIndex = 0;
 
 	List<BigInteger> getAllRotations(BigInteger prime) {
 		List<BigInteger> rotations = new ArrayList<BigInteger>();
@@ -38,6 +44,60 @@ public class PrimeFinderAndCounter {
 
 		return true;
 
+	}
+
+	public int getCounter() {
+		return counter;
+	}
+
+	public void setCounter(int counter) {
+		counter = counter;
+	}
+	
+	public int findTheListOfCircularPrimes(int startIndex,int endIndex)
+	{
+		int counter=0;
+		for(int i=startIndex;i<endIndex;i++)
+		{
+			if(checkIfPrime(i))
+			{
+				List<BigInteger> list = getAllRotations(BigInteger.valueOf(i));
+				Set<Integer> primes=new HashSet<>();
+				boolean circularPrime = true;
+				for(BigInteger listValue:list)
+				{
+					if(!checkIfPrime(listValue.intValue()))
+					{
+						circularPrime = false;
+						break;
+					}
+				}
+				if(circularPrime)
+				{
+					counter++;
+					
+				}
+			}
+		}
+		
+	  setCounter(counter);
+	  return counter;
+	}
+
+	public int getStartIndex() {
+		return startIndex;
+	}
+
+	public void setStartIndex(int startIndex) {
+		this.startIndex = startIndex;
+	}
+
+	public int getEndIndex() {
+		return endIndex;
+	}
+
+	public void setEndIndex(int endIndex) {
+		this.endIndex = endIndex;
 	}
 
 }

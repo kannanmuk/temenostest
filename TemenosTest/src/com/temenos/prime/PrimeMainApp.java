@@ -10,7 +10,7 @@ public class PrimeMainApp {
 	
 	
 	private static int num = 1000000; //set the number here below which the total number of circular primes to be found
-	private static int counter = 0;
+	
 	private static List<BigInteger> masterList = new ArrayList<>();
 	
 	public static void main(String[] args)
@@ -18,6 +18,7 @@ public class PrimeMainApp {
 		PrimeFinderAndCounter finder = new PrimeFinderAndCounter();
 		long timer = System.currentTimeMillis();
 		System.out.println("timer="+timer);
+		int counter=0;
 		for(int i=2;i<num;i++)
 		{
 			if(finder.checkIfPrime(i))
@@ -41,8 +42,9 @@ public class PrimeMainApp {
 			}
 		}
 		
-		System.out.println(System.currentTimeMillis() - timer + "total "+ counter);
-		
+		finder.setCounter(counter);
+		System.out.println("total="+counter);
+		System.out.println("time="+(System.currentTimeMillis()-timer));
 		
 	}
 
